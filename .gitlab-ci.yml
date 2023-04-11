@@ -6,5 +6,5 @@ variables:
   SOURCE_NAME: sudosh2
   SOURCE_REPO: https://github.com/squash/sudosh2
   SOURCE_TAG_PREFIX: 'v'
-  BUILD_ARCH_ALL: 'true'
+  BUILD_ARCH_ALL: ''
 
