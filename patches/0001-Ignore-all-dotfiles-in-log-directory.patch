@@ -1,0 +1,25 @@
+From f52296f45e006a23711cb148bed29ed807df8af4 Mon Sep 17 00:00:00 2001
+From: JG <josh@brokedown.net>
+Date: Tue, 16 Jul 2019 08:36:35 -0500
+Subject: [PATCH 1/6] Ignore all dotfiles in log directory
+
+---
+ src/replay.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/replay.c b/src/replay.c
+index 7e2d1e7..6970747 100644
+--- a/src/replay.c
++++ b/src/replay.c
+@@ -167,7 +167,7 @@ main (int argc, char **argv, char **environ)
+       char randstr[BUFSIZ];
+       time_t e;
+ 
+-      if (strcmp (dirp->d_name, ".") == 0 || strcmp (dirp->d_name, "..") == 0)
++      if (strncmp (dirp->d_name, ".", 1) == 0)
+ 	continue;
+ 
+ #ifdef linux
+-- 
+2.39.2
+

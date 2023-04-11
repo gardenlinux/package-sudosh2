@@ -1,0 +1,25 @@
+From aab4a19177abc41c5b5027309d4a2dde6690824e Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 5 Oct 2020 11:51:03 -0400
+Subject: [PATCH 2/6] SIGCHLD doesn't indicate an error and shouldn't be passed
+ through
+
+---
+ src/sudosh.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/sudosh.c b/src/sudosh.c
+index 8d8a292..87ad95d 100644
+--- a/src/sudosh.c
++++ b/src/sudosh.c
+@@ -677,6 +677,7 @@ bye (int signum)
+     mysyslog (sudosh_option.priority,
+ 	      "stopping session for %s as %s, tty %s, shell %s", user.from,
+ 	      user.to, ttyname (0), user.shell.ptr);
++  if (signum==SIGCHLD) exit(0);
+   exit (signum);
+ }
+ 
+-- 
+2.39.2
+

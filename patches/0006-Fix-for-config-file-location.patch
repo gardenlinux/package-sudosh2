@@ -1,0 +1,35 @@
+From 52a03c1442aa92669a933dbd9d687091de864a79 Mon Sep 17 00:00:00 2001
+From: squash <josh@brokedown.net>
+Date: Thu, 30 Mar 2023 08:22:51 -0500
+Subject: [PATCH 6/6] Fix for config file location
+
+---
+ configure.ac | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 17d399d..4277bae 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -147,14 +147,15 @@ AC_SUBST([VLOGDIR])
+ AC_SUBST([VFDL])
+ AC_SUBST([PREFIX])
+ 
++temp_mandir=`eval echo $mandir` ; temp_mandir=`eval echo $temp_mandir`
++temp_sysconfdir=`eval echo ${sysconfdir}`
++sysconfdir=$temp_sysconfdir
++
+ AC_DEFINE_UNQUOTED(SYSCONFDIR,"$sysconfdir", [directory to place sudosh.conf])
+ AC_CONFIG_FILES([Makefile src/Makefile src/sudosh.conf sudosh.1 sudosh-replay.8 sudosh.conf.5])
+ CFLAGS="$CFLAGS -Werror"
+ AC_OUTPUT
+ 
+-temp_mandir=`eval echo $mandir` ; temp_mandir=`eval echo $temp_mandir`
+-temp_sysconfdir=`eval echo ${sysconfdir}`
+-sysconfdir=$temp_sysconfdir
+ echo "Configuration summary:"
+ echo "======================"
+ echo ""
+-- 
+2.39.2
+

@@ -1,1 +1,6 @@
-update-to-52a03c1.patch
+0001-Ignore-all-dotfiles-in-log-directory.patch
+0002-SIGCHLD-doesn-t-indicate-an-error-and-shouldn-t-be-p.patch
+0003-Fix-config-for-sysconfdir-validate-logdir-if-config-.patch
+0004-Fix-sudosh.conf-install-rule-for-non-root-builds.patch
+0005-revert-autoconf-requirement-back-to-2.5-include-comp.patch
+0006-Fix-for-config-file-location.patch
