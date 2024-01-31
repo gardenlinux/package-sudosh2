@@ -4,3 +4,4 @@ git_src --branch "v$version" https://github.com/squash/sudosh2
 rm "$dir/src/debian/changelog"
 echo 1.0 > "$dir/src/debian/source/format"
 apply_patches
+version_suffix=gardenlinux0
